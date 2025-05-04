@@ -1,39 +1,53 @@
 :root {
-  --pastel-blue: #A8DADC;
-  --pastel-pink: #FFB6B9;
-  --pastel-yellow: #F9E79F;
-  --pastel-green: #A3E4D7;
-  --font-family: 'Arial', sans-serif;
+  --green-light:  #E9F5EC;
+  --green-mid:    #A3D9A5;
+  --green-dark:   #4C8C4A;
+  --green-deep:   #2F4F2F;
+  --font-family:  'Arial', sans-serif;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: var(--font-family);
-  background-color: var(--pastel-yellow);
-  color: #333;
+  background-color: var(--green-light);
+  color: var(--green-deep);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 header {
-  background: var(--pastel-blue);
+  position: relative;
+  background: url('forest.jpg') center/cover no-repeat;
   text-align: center;
-  padding: 2rem;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+  padding: 4rem 2rem;
+  color: white;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(47,79,47,0.6);
+  z-index: 0;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  position: relative;
+  z-index: 1;
+  font-size: 4rem;
+  font-weight: bold;
   color: #fff;
-  margin-bottom: 0.5rem;
 }
 
 header p {
-  color: #fff;
-  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
 }
 
 nav {
@@ -51,15 +65,16 @@ nav {
 .nav-links a {
   display: block;
   padding: 1rem 1.5rem;
-  background: var(--pastel-pink);
+  background: var(--green-mid);
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .nav-links a:hover {
+  background: var(--green-dark);
   transform: scale(1.05);
 }
 
@@ -71,7 +86,8 @@ nav {
 
 #quote {
   font-style: italic;
-  background: var(--pastel-green);
+  background: var(--green-mid);
+  color: var(--green-deep);
   padding: 1rem;
   border-radius: 20px;
 }
@@ -80,6 +96,6 @@ footer {
   margin-top: auto;
   text-align: center;
   padding: 1rem;
-  background-color: var(--pastel-blue);
+  background-color: var(--green-deep);
   color: #fff;
 }
