@@ -1,3 +1,41 @@
+/* index.html */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayley's MCAT + Med School Tracker</title>
+  <!-- Google Font: Banquet Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Banquet+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Kayley's MCAT + Med School Tracker</h1>
+    <p>Your daily progress & application hub</p>
+  </header>
+  <main>
+    <section id="daily-quote">
+      <blockquote id="quote">"Your daily motivation goes here."</blockquote>
+    </section>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="mcat.html">MCAT Tracker</a></li>
+        <li><a href="apply.html">Application Corner</a></li>
+        <li><a href="favorites.html">Favorites Log</a></li>
+        <li><a href="reward.html">Reward Timer</a></li>
+      </ul>
+    </nav>
+  </main>
+  <footer>
+    <p>© 2025 Kayley Franklin</p>
+  </footer>
+</body>
+</html>
+
+/* style.css */
 :root {
   --green-light:  #E9F5EC;
   --green-mid:    #A3D9A5;
@@ -42,6 +80,7 @@ header h1 {
   z-index: 1;
   font-size: 4rem;
   font-weight: bold;
+  font-family: 'Banquet Script', cursive;
   color: #fff;
 }
 
@@ -99,4 +138,3 @@ footer {
   background-color: var(--green-deep);
   color: #fff;
 }
-
