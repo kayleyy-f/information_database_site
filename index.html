@@ -1,32 +1,54 @@
+/* index.html */
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kayley's MCAT + Med School Tracker</title>
+  <title>Free MSAR: Med School Admission Resource</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Kayley's MCAT + Med School Tracker</h1>
-    <p>Your daily progress & application hub</p>
+    <h1>Free MSAR</h1>
+    <p>Your Open Medical School Admission Resource</p>
   </header>
-  <main>
-    <section id="daily-quote">
-      <blockquote id="quote">"Your daily motivation goes here."</blockquote>
+
+  <main class="container">
+    <aside class="filters">
+      <h2>Filters</h2>
+      <div class="filter-group">
+        <label for="degree-select">Degree Programs:</label>
+        <select id="degree-select">
+          <option value="all">All</option>
+          <option value="MD">MD</option>
+          <option value="DO">DO</option>
+          <option value="MD/MPH">MD/MPH</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Class Size:</label>
+        <input type="range" id="class-size" min="0" max="250" value="250">
+        <span id="class-size-val">250+</span>
+      </div>
+      <div class="filter-group">
+        <label>School Type:</label>
+        <label><input type="checkbox" class="school-type" value="Public"> Public</label>
+        <label><input type="checkbox" class="school-type" value="Private"> Private</label>
+      </div>
+      <div class="filter-group">
+        <label>Campus Type:</label>
+        <label><input type="checkbox" class="campus-type" value="Urban"> Urban</label>
+        <label><input type="checkbox" class="campus-type" value="Suburban"> Suburban</label>
+        <label><input type="checkbox" class="campus-type" value="Rural"> Rural</label>
+      </div>
+    </aside>
+
+    <section class="results">
+      <h2>Institutions</h2>
+      <div id="listings"></div>
     </section>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="mcat.html">MCAT Tracker</a></li>
-        <li><a href="apply.html">Application Corner</a></li>
-        <li><a href="favorites.html">Favorites Log</a></li>
-        <li><a href="reward.html">Reward Timer</a></li>
-      </ul>
-    </nav>
   </main>
-  <footer>
-    <p>© 2025 Kayley Franklin</p>
-  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
