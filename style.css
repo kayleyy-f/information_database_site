@@ -142,3 +142,48 @@ main {
   color: var(--green-500);
   border: 1px solid var(--green-500);
 }
+/* detail‐page sidebar/nav */
+.detail-nav {
+    width: 240px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  .detail-nav .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--green-500);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .detail-nav nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .detail-nav nav li {
+    margin: 0.5rem 0;
+  }
+  .detail-nav nav a {
+    color: var(--green-500);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  /* detail‐page content area */
+  .detail-content {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  
+  /* ensure 2-column layout for detail pages */
+  main {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 1rem;
+    padding: 1rem; /* match index padding */
+  }
+  
