@@ -1,2 +1,2 @@
-# mcat_preparation_site
-where I keep track of my mcat studying progress
+# MSAR_free
+Med School Admission Resource
