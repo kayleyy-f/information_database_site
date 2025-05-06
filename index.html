@@ -1,51 +1,50 @@
-/* index.html */
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free MSAR: Med School Admission Resource</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Free MSAR</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Free MSAR</h1>
+  <header class="page-header">
+    <h1>The Free MSAR</h1>
     <p>Your Open Medical School Admission Resource</p>
   </header>
 
-  <main class="container">
+  <main>
     <aside class="filters">
       <h2>Filters</h2>
+
       <div class="filter-group">
-        <label for="degree-select">Degree Programs:</label>
-        <select id="degree-select">
-          <option value="all">All</option>
-          <option value="MD">MD</option>
-          <option value="DO">DO</option>
-          <option value="MD/MPH">MD/MPH</option>
+        <label for="degree">Degree Programs:</label>
+        <select id="degree">
+          <option>All</option>
         </select>
       </div>
+
       <div class="filter-group">
-        <label>Class Size:</label>
-        <input type="range" id="class-size" min="0" max="250" value="250">
-        <span id="class-size-val">250+</span>
+        <label for="size">Class Size:</label>
+        <input type="range" id="size" min="40" max="250" step="10" value="250">
+        <span id="size-val">250+</span>
       </div>
+
       <div class="filter-group">
         <label>School Type:</label>
-        <label><input type="checkbox" class="school-type" value="Public"> Public</label>
-        <label><input type="checkbox" class="school-type" value="Private"> Private</label>
+        <label><input type="checkbox" id="type-public"> Public</label>
+        <label><input type="checkbox" id="type-private"> Private</label>
       </div>
+
       <div class="filter-group">
         <label>Campus Type:</label>
-        <label><input type="checkbox" class="campus-type" value="Urban"> Urban</label>
-        <label><input type="checkbox" class="campus-type" value="Suburban"> Suburban</label>
-        <label><input type="checkbox" class="campus-type" value="Rural"> Rural</label>
+        <label><input type="checkbox" id="campus-urban"> Urban</label>
+        <label><input type="checkbox" id="campus-suburban"> Suburban</label>
+        <label><input type="checkbox" id="campus-rural"> Rural</label>
       </div>
     </aside>
 
-    <section class="results">
-      <h2>Institutions</h2>
-      <div id="listings"></div>
+    <section class="listings" id="listings">
+      <!-- JavaScript will inject your school cards here -->
     </section>
   </main>
 
