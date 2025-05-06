@@ -1,140 +1,210 @@
-/* index.html */
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kayley's MCAT + Med School Tracker</title>
-  <!-- Google Font: Banquet Script -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Banquet+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Kayley's MCAT + Med School Tracker</h1>
-    <p>Your daily progress & application hub</p>
-  </header>
-  <main>
-    <section id="daily-quote">
-      <blockquote id="quote">"Your daily motivation goes here."</blockquote>
-    </section>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="mcat.html">MCAT Tracker</a></li>
-        <li><a href="apply.html">Application Corner</a></li>
-        <li><a href="favorites.html">Favorites Log</a></li>
-        <li><a href="reward.html">Reward Timer</a></li>
-      </ul>
-    </nav>
-  </main>
-  <footer>
-    <p>© 2025 Kayley Franklin</p>
-  </footer>
-</body>
-</html>
-
 /* style.css */
+
+/* 1. Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* 2. Color palette */
 :root {
-  --green-light:  #E9F5EC;
-  --green-mid:    #A3D9A5;
-  --green-dark:   #4C8C4A;
-  --green-deep:   #2F4F2F;
-  --font-family:  'Arial', sans-serif;
+  --green-100: #F3FAF7;
+  --green-300: #A3D9A5;
+  --green-500: #37B36B;
+  --green-700: #1E663E;
+  --text-color: #333333;
+  --header-bg: var(--green-700);
+  --header-text: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --border-color: #E0E0E0;
 }
 
+/* 3. Global resets */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 body {
-  font-family: var(--font-family);
-  background-color: var(--green-light);
-  color: var(--green-deep);
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--green-100);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* 4. Top navigation bar */
+.top-nav {
+  background-color: var(--header-bg);
+  color: var(--header-text);
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+}
+.top-nav img.logo {
+  height: 2rem;
+  margin-right: 1rem;
+}
+.top-nav h1 {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-header {
-  position: relative;
-  background: url('forest.jpg') center/cover no-repeat;
-  text-align: center;
-  padding: 4rem 2rem;
-  color: white;
+/* 5. Secondary navigation */
+.secondary-nav {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-color);
 }
-
-header::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(47,79,47,0.6);
-  z-index: 0;
-}
-
-header h1 {
-  position: relative;
-  z-index: 1;
-  font-size: 4rem;
-  font-weight: bold;
-  font-family: 'Banquet Script', cursive;
-  color: #fff;
-}
-
-header p {
-  position: relative;
-  z-index: 1;
-}
-
-nav {
-  margin: 2rem auto;
-}
-
-.nav-links {
+.secondary-nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-around;
-  max-width: 600px;
-  margin: 0 auto;
 }
-
-.nav-links a {
+.secondary-nav li {
+  margin-right: 1rem;
+}
+.secondary-nav a {
   display: block;
-  padding: 1rem 1.5rem;
-  background: var(--green-mid);
-  color: #fff;
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
   text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: transform 0.2s, background 0.2s;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.secondary-nav a.active {
+  color: var(--green-500);
+  border-bottom: 3px solid var(--green-500);
 }
 
-.nav-links a:hover {
-  background: var(--green-dark);
-  transform: scale(1.05);
+/* 6. Main layout */
+main {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
 }
 
-#daily-quote {
-  margin: 2rem auto;
-  max-width: 600px;
-  text-align: center;
-}
-
-#quote {
-  font-style: italic;
-  background: var(--green-mid);
-  color: var(--green-deep);
+/* 7. Filters sidebar */
+.filters {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
   padding: 1rem;
-  border-radius: 20px;
+}
+.filters h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--green-700);
+}
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+.filter-group label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.filter-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+.filter-group .dropdown {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
 }
 
+/* 8. Search and sort bar */
+.search-bar {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.search-bar input[type="search"] {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555555;
+}
+.results-header select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* 9. Listings cards */
+.listings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.school-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 80px 1fr 200px;
+  gap: 1rem;
+  align-items: start;
+}
+.school-card img.logo {
+  max-width: 80px;
+  border-radius: 4px;
+}
+.school-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.school-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.school-card .meta {
+  font-size: 0.9rem;
+  color: #555555;
+}
+.school-card .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.school-card .btn {
+  display: inline-block;
+  padding: 0.5rem;
+  border: 1px solid var(--green-500);
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.school-card .btn.primary {
+  background-color: var(--green-500);
+  color: #FFFFFF;
+}
+.school-card .btn.primary:hover {
+  background-color: var(--green-700);
+}
+.school-card .btn.secondary {
+  background-color: #FFFFFF;
+  color: var(--green-500);
+}
+.school-card .btn.secondary:hover {
+  background-color: var(--green-500);
+  color: #FFFFFF;
+}
+
+/* 10. Footer */
 footer {
-  margin-top: auto;
   text-align: center;
   padding: 1rem;
-  background-color: var(--green-deep);
-  color: #fff;
+  font-size: 0.8rem;
+  color: #777777;
 }
