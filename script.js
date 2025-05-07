@@ -1,6 +1,6 @@
 // script.js
 
-// 1) Your full data set (20 schools)…
+// 1) Full dataset (unchanged)
 const schools = [
   { name: "Baylor College of Medicine", page: "baylor-college-of-medicine.html", type: "Private", degree: "MD", size: 185, campus: "Urban" },
   { name: "Fertitta Family College of Medicine at UH", page: "fertitta-family-college-of-medicine.html", type: "Public", degree: "MD", size: 60, campus: "Urban" },
@@ -24,15 +24,15 @@ const schools = [
   { name: "Anne Burnett Marion School of Medicine at TCU", page: "tcu-anne-burnett-marion.html", type: "Private", degree: "MD", size: 60, campus: "Urban" }
 ];
 
-// 2) Grab our filter controls and the listings container
+// 2) Grab controls and container
 const listingsEl      = document.getElementById('listings');
 const typeChecks      = Array.from(document.querySelectorAll('.filter-type'));
-const degreeChecks    = Array.from(document.querySelectorAll('.filter-degree'));
+const degreeSelect    = document.getElementById('degree');
 const campusChecks    = Array.from(document.querySelectorAll('.filter-campus'));
 const sizeSlider      = document.getElementById('size');
 const sizeValEl       = document.getElementById('size-val');
 
-// 3) Render function
+// 3) Render helper
 function render(list) {
   listingsEl.innerHTML = '';
   list.forEach(s => {
@@ -46,15 +46,13 @@ function render(list) {
   });
 }
 
-// 4) Helper to get checked values
-function checkedValues(checkboxes) {
-  return checkboxes.filter(cb => cb.checked).map(cb => cb.value);
-}
+// 4) Helpers to collect filter values
+const checkedValues = cbs => cbs.filter(cb => cb.checked).map(cb => cb.value);
 
-// 5) Apply filters and re-render
+// 5) Main filter function
 function applyFilters() {
   const types   = checkedValues(typeChecks);
-  const degs    = checkedValues(degreeChecks);
+  const degree  = degreeSelect.value;      // "All", "MD" or "DO"
   const camps   = checkedValues(campusChecks);
   const minSize = parseInt(sizeSlider.value, 10);
 
@@ -63,23 +61,24 @@ function applyFilters() {
     ? `${minSize}+`
     : minSize;
 
-  const filtered = schools.filter(s => {
-    return (types.length === 0    || types.includes(s.type))
-        && (degs.length === 0     || degs.includes(s.degree))
-        && (camps.length === 0    || camps.includes(s.campus))
-        && (s.size >= minSize);
-  });
+  // filter logic
+  const filtered = schools.filter(s =>
+    (types.length === 0       || types.includes(s.type))   &&
+    (degree === 'All'         || s.degree === degree)      &&
+    (camps.length === 0       || camps.includes(s.campus)) &&
+    (s.size >= minSize)
+  );
 
   render(filtered);
 }
 
 // 6) Wire up events
 typeChecks.forEach(cb => cb.addEventListener('change', applyFilters));
-degreeChecks.forEach(cb => cb.addEventListener('change', applyFilters));
+degreeSelect.addEventListener('change', applyFilters);
 campusChecks.forEach(cb => cb.addEventListener('change', applyFilters));
 sizeSlider.addEventListener('input', applyFilters);
 
-// 7) Initial load: show everything
+// 7) Initial render
 document.addEventListener('DOMContentLoaded', () => {
   sizeValEl.textContent = sizeSlider.value + '+';
   render(schools);
