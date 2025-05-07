@@ -14,34 +14,37 @@
 
   <main>
     <aside class="filters">
-      <h2>Filters</h2>
+  <h2>Filters</h2>
 
-      <div class="filter-group">
-        <label for="degree">Degree Programs:</label>
-        <select id="degree">
-          <option>All</option>
-        </select>
-      </div>
+  <!-- Public / Private -->
+  <div class="filter-group">
+    <p>Public / Private:</p>
+    <label><input type="checkbox" class="filter-type" value="Public"> Public</label><br>
+    <label><input type="checkbox" class="filter-type" value="Private"> Private</label>
+  </div>
 
-      <div class="filter-group">
-        <label for="size">Class Size:</label>
-        <input type="range" id="size" min="40" max="250" step="10" value="250">
-        <span id="size-val">250+</span>
-      </div>
+  <!-- MD / DO -->
+  <div class="filter-group">
+    <p>Degree Type:</p>
+    <label><input type="checkbox" class="filter-degree" value="MD"> MD</label><br>
+    <label><input type="checkbox" class="filter-degree" value="DO"> DO</label>
+  </div>
 
-      <div class="filter-group">
-        <label>School Type:</label>
-        <label><input type="checkbox" id="type-public"> Public</label>
-        <label><input type="checkbox" id="type-private"> Private</label>
-      </div>
+  <!-- Class Size Slider -->
+  <div class="filter-group">
+    <label for="size">Min Class Size:</label><br>
+    <input type="range" id="size" min="0" max="300" step="10" value="0">
+    <span id="size-val">0+</span>
+  </div>
 
-      <div class="filter-group">
-        <label>Campus Type:</label>
-        <label><input type="checkbox" id="campus-urban"> Urban</label>
-        <label><input type="checkbox" id="campus-suburban"> Suburban</label>
-        <label><input type="checkbox" id="campus-rural"> Rural</label>
-      </div>
-    </aside>
+  <!-- Campus Type -->
+  <div class="filter-group">
+    <p>Campus Type:</p>
+    <label><input type="checkbox" class="filter-campus" value="Urban"> Urban</label><br>
+    <label><input type="checkbox" class="filter-campus" value="Suburban"> Suburban</label><br>
+    <label><input type="checkbox" class="filter-campus" value="Rural"> Rural</label>
+  </div>
+</aside>
 
     <section class="listings" id="listings">
       <!-- JavaScript will inject your school cards here -->
