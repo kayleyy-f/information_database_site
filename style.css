@@ -217,10 +217,13 @@ main:not(.detail-main) {
 }
 /* ---- Application Tracker Styles ---- */
 
-.tracker-controls {
+  .tracker-controls {
   margin: 1.5rem 0;
   display: flex;
   gap: 0.5rem;
+  align-items: center;    /* add this */
+}
+
 }
 .tracker-controls select {
   flex: 1;
