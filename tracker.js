@@ -1,6 +1,6 @@
 // tracker.js
 document.addEventListener('DOMContentLoaded', () => {
-  const select = document.getElementById('school-select');
+  const input  = document.getElementById('school-input');
   const addBtn = document.getElementById('add-btn');
   const list   = document.getElementById('tracker-list');
 
@@ -47,10 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.addEventListener('click', () => {
         app.step = (app.step + 1) % steps.length;
         localStorage.setItem('applications', JSON.stringify(apps));
-
-        // fire confetti
         confetti({ particleCount: 60, spread: 50, origin: { y: 0.6 } });
-
         render();
       });
 
@@ -60,13 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // add new school
   addBtn.addEventListener('click', () => {
-    const name = select.value;
+    const name = input.value.trim();
     if (!name) return;
-    // prevent duplicates
-    if (apps.some(a => a.name === name)) return;
+    if (apps.some(a => a.name === name)) return;  // no duplicates
     apps.push({ name, step: 0 });
     localStorage.setItem('applications', JSON.stringify(apps));
-    select.selectedIndex = 0;
+    input.value = '';
     render();
   });
 
