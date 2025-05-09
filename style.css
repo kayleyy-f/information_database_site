@@ -288,3 +288,7 @@ main:not(.detail-main) {
 .tracker-steps li.active:not(:last-child)::after {
   background: var(--green-500);
 }
+.page-header .tracker-button {
+  display: inline-block;
+  margin-top: 1rem;
+}
