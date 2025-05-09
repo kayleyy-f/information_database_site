@@ -303,3 +303,10 @@ main:not(.detail-main) {
 .tracker-steps li.active:not(:last-child)::after {
   background: var(--green-500);
 }
+/* add a star before the active step label */
+.tracker-steps li.active::before {
+  content: '★ ';
+  color: var(--green-500);
+  font-size: 1rem;
+  vertical-align: middle;
+}
