@@ -9,44 +9,26 @@
 <body>
   <header class="page-header">
     <h1>Application Tracker</h1>
-        <p>Your Medical School Planning Dashboard</p>
+    <p>Your Medical School Planning Dashboard</p>
     <a href="index.html" class="btn secondary">🏠 Home</a>
   </header>
 
   <main class="homepage">
     <section class="tracker-controls">
-      <select id="school-select">
-        <option value="">Select a school…</option>
-        <option>Baylor College of Medicine</option>
-        <option>Fertitta Family College of Medicine at UH</option>
-        <option>Long School of Medicine – UT Health San Antonio</option>
-        <option>McGovern Medical School – UTHealth Houston</option>
-        <option>Sam Houston State University College of Osteopathic Medicine</option>
-        <option>Sealy School of Medicine at UTMB – Galveston</option>
-        <option>Texas A&M HSC College of Medicine</option>
-        <option>Texas Tech HSC Paul L Foster SOM at El Paso</option>
-        <option>Texas Tech HSC SOM at Lubbock</option>
-        <option>UNT HSC Texas College of Osteopathic Medicine</option>
-        <option>UT Austin Dell Medical School</option>
-        <option>UT Rio Grande Valley School of Medicine</option>
-        <option>UT Southwestern Medical School</option>
-        <option>UT Tyler School of Medicine</option>
-        <option>University of South Carolina School of Medicine – Greenville</option>
-        <option>University of Mississippi School of Medicine</option>
-        <option>East Carolina University Brody School of Medicine</option>
-        <option>Edward Via College of Osteopathic Medicine (VCOM)</option>
-        <option>Nova Southeastern University Dr. Kiran C. Patel College of Osteopathic Medicine</option>
-        <option>Anne Burnett Marion School of Medicine at TCU</option>
-      </select>
+      <input
+        type="text"
+        id="school-input"
+        placeholder="Enter school name…"
+      />
       <button id="add-btn" class="btn primary">+ Add School</button>
     </section>
 
     <section id="tracker-list"></section>
   </main>
 
-  <!-- load confetti library once -->
+  <!-- confetti library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <!-- load your tracker code once -->
+  <!-- your tracker logic -->
   <script src="tracker.js"></script>
 </body>
 </html>
