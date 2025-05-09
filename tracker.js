@@ -68,3 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   render();
 });
+// inside render(), change this block:
+card.addEventListener('click', () => {
+  app.step = (app.step + 1) % steps.length;
+  localStorage.setItem('applications', JSON.stringify(apps));
+
+  // fire some confetti!
+  confetti({
+    particleCount: 60,
+    spread: 50,
+    origin: { y: 0.6 }
+  });
+
+  render();
+});
