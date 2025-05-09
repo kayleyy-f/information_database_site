@@ -1,4 +1,4 @@
-/* 1. IMPORT FONT + COLOR PALETTE */
+/* 1. IMPORT FONT & COLOR PALETTE */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 :root {
@@ -31,7 +31,7 @@ body {
   padding: 0 1rem;
 }
 
-/* 3. HOMEPAGE HEADER (unchanged) */
+/* 3. HOMEPAGE HEADER */
 .page-header {
   background: var(--header-bg);
   color: var(--header-text);
@@ -44,8 +44,8 @@ body {
   font-size: 1rem; margin-top: 0.25rem;
 }
 
-/* 4. HOMEPAGE LAYOUT (unchanged) */
-main {
+/* 4. HOMEPAGE LAYOUT – now scoped to .homepage container */
+.homepage main {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 1rem;
@@ -53,28 +53,29 @@ main {
 }
 
 /* 5. FILTERS & LISTINGS (unchanged) */
-.filters { /* … your existing filters CSS … */ }
-.listings, .school-card, .school-card h3 a, .school-card .actions, .btn { /* … */ }
+.filters { /*…*/ }
+.listings { /*…*/ }
+.school-card { /*…*/ }
+/* etc… */
 
 /* 6. DETAIL-PAGE HEADER */
 .detail-header {
-  background-color: var(--green-700);
+  background: var(--header-bg);
   color: var(--header-text);
   padding: 1.5rem 1rem;
   border-bottom: 1px solid var(--border);
 }
 .detail-header h1 {
-  margin: 0;
   font-size: 2rem;
+  margin: 0;
 }
 
-/* 7. DETAIL-PAGE TWO-COLUMN WRAPPER */
+/* 7. DETAIL-PAGE WRAPPER & SIDEBAR */
 .detail-container {
   display: flex;
   margin-top: 1rem;
 }
 
-/* 8. DETAIL-PAGE SIDEBAR */
 .detail-nav {
   position: sticky;
   top: 0;
@@ -83,7 +84,7 @@ main {
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 1rem;
-  height: calc(100vh - (1.5rem + 1rem)); /* account for header + margin */
+  height: calc(100vh - (1.5rem + 1rem));
 }
 .detail-nav ul {
   list-style: none;
@@ -98,7 +99,7 @@ main {
   font-weight: 600;
 }
 
-/* 9. DETAIL-PAGE CONTENT */
+/* 8. DETAIL-PAGE CONTENT – full width to the right */
 .detail-main {
   flex: 1;
   background: var(--card-bg);
@@ -120,7 +121,7 @@ main {
 .detail-main p {
   line-height: 1.6;
 }
-/* separator line */
+/* horizontal rule separator */
 .detail-main hr {
   border: none;
   border-top: 1px solid var(--border);
