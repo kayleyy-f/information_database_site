@@ -49,11 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('applications', JSON.stringify(apps));
 
         // fire confetti
-        confetti({
-          particleCount: 60,
-          spread: 50,
-          origin: { y: 0.6 }
-        });
+        confetti({ particleCount: 60, spread: 50, origin: { y: 0.6 } });
 
         render();
       });
