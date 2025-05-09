@@ -1,51 +1,56 @@
-/* Import font */
+/* 1. IMPORTS & VARIABLES */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-/* Color palette */
 :root {
-  --green-100:  #F3FAF7;
-  --green-300:  #A3D9A5;
-  --green-500:  #37B36B;
-  --green-700:  #1E663E;
-  --text-color: #333333;
-  --header-bg:  var(--green-700);
-  --header-text:#FFFFFF;
-  --card-bg:    #FFFFFF;
-  --border-color:#E0E0E0;
+  /* color palette */
+  --green-100:   #F3FAF7;
+  --green-300:   #A3D9A5;
+  --green-500:   #37B36B;
+  --green-700:   #1E663E;
+  --text-color:  #333333;
+  --header-bg:   var(--green-700);
+  --header-text: #FFFFFF;
+  --card-bg:     #FFFFFF;
+  --border:      #E0E0E0;
 }
 
-/* Reset */
+/* 2. RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 3. GLOBAL */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: var(--green-100);
+  background: var(--green-100);
   color: var(--text-color);
   line-height: 1.5;
+  margin: 0;
   padding: 0 1rem;
 }
 
-/* Header */
+/* 4. HOMEPAGE HEADER */
 .page-header {
-  background-color: var(--header-bg);
+  background: var(--header-bg);
   color: var(--header-text);
   padding: 0.75rem 1.5rem;
 }
 .page-header h1 {
   font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
 }
 .page-header p {
   font-size: 1rem;
   font-weight: 400;
+  margin-top: 0.25rem;
 }
 
-/* Main layout */
+/* 5. HOMEPAGE MAIN LAYOUT */
 main {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -53,10 +58,10 @@ main {
   margin-top: 0.5rem;
 }
 
-/* Filters sidebar */
+/* 6. FILTERS SIDEBAR */
 .filters {
-  background-color: #FFFFFF;
-  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
   padding: 1rem;
 }
@@ -73,42 +78,34 @@ main {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
+.filter-group select,
 .filter-group input[type="range"] {
   width: 100%;
 }
 .filter-group select {
-  width: 100%;
   padding: 0.5rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 .filter-group input[type="checkbox"] {
   margin-right: 0.5rem;
 }
-
-/* Range value display */
 #size-val {
-  display: inline-block;
-  margin-left: 0.5rem;
   font-weight: 600;
+  margin-left: 0.5rem;
 }
 
-/* Listings section */
+/* 7. LISTINGS */
 .listings {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
-/* School card */
 .school-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
 }
 .school-card h3 a {
   color: var(--green-500);
@@ -118,12 +115,12 @@ main {
 }
 .school-card .meta {
   font-size: 0.9rem;
-  color: #555555;
+  color: #555;
 }
 .school-card .actions {
+  margin-top: 0.5rem;
   display: flex;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 .school-card .btn {
   padding: 0.5rem 1rem;
@@ -133,114 +130,83 @@ main {
   text-align: center;
 }
 .school-card .btn.primary {
-  background-color: var(--green-500);
-  color: #FFFFFF;
+  background: var(--green-500);
+  color: #fff;
   border: none;
 }
 .school-card .btn.secondary {
-  background-color: #FFFFFF;
+  background: var(--card-bg);
   color: var(--green-500);
   border: 1px solid var(--green-500);
 }
-/* detail‐page sidebar/nav */
-.detail-nav {
-    width: 240px;
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 1rem;
-  }
-  .detail-nav .back-link {
-    display: inline-block;
-    margin-bottom: 1rem;
-    color: var(--green-500);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .detail-nav nav ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-  }
-  .detail-nav nav li {
-    margin: 0.5rem 0;
-  }
-  .detail-nav nav a {
-    color: var(--green-500);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  /* detail‐page content area */
-  .detail-content {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 1rem;
-  }
-  
-  /* ensure 2-column layout for detail pages */
-  main {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 1rem;
-    padding: 1rem; /* match index padding */
-  }
-  /* detail-page layout */
-body {
-  display: flex;
+
+/* 8. DETAIL-PAGE HEADER */
+.detail-header {
+  background: var(--card-bg);
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.detail-header h1 {
   margin: 0;
-  font-family: sans-serif;
+  font-size: 2rem;
+  color: var(--text-color);
 }
 
+/* 9. DETAIL-PAGE TWO-COLUMN WRAPPER */
+.detail-container {
+  display: flex;
+  margin-top: 1rem;
+}
+
+/* 10. DETAIL-PAGE SIDEBAR */
 .detail-nav {
   position: sticky;
   top: 0;
-  width: 200px;
+  width: 240px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
   padding: 1rem;
-  border-right: 3px solid #00796b;  /* dark teal line */
-  background: #f9f9f9;
-  height: 100vh;
-  box-sizing: border-box;
+  height: calc(100vh -  (1.5rem + 1rem)); /* header + margin */
 }
-
 .detail-nav ul {
   list-style: none;
   padding: 0;
 }
-
 .detail-nav li + li {
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 }
-
 .detail-nav a {
+  color: var(--green-500);
   text-decoration: none;
-  color: #00796b;
-  font-weight: bold;
+  font-weight: 600;
 }
 
+/* 11. DETAIL-PAGE CONTENT */
 .detail-main {
-  padding: 2rem;
   flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-left: 1rem;
 }
-
 .detail-main section {
   margin-bottom: 2rem;
 }
-
 .detail-main h2 {
-  margin-top: 0;
-  color: #004d40;
+  color: var(--green-700);
+  margin-bottom: 0.5rem;
 }
-
+.detail-main ul {
+  padding-left: 1.25rem;
+}
+.detail-main p {
+  line-height: 1.6;
+}
+/* separator line */
 .detail-main hr {
   border: none;
-  border-top: 2px solid #cfd8dc;
+  border-top: 1px solid var(--border);
   margin: 2rem 0;
 }
-
-/* smooth scroll on anchor clicks */
-html {
-  scroll-behavior: smooth;
-}
-
