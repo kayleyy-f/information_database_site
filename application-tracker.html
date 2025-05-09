@@ -1,1 +1,31 @@
 
+<!-- application-tracker.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Application Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Application Tracker</h1>
+    <a href="index.html" class="btn secondary">🏠 Home</a>
+  </header>
+
+  <main class="homepage">
+    <section class="tracker-controls">
+      <input
+        type="text"
+        id="school-input"
+        placeholder="Enter school name…"
+      />
+      <button id="add-btn" class="btn primary">+ Add School</button>
+    </section>
+
+    <section id="tracker-list"></section>
+  </main>
+
+  <script src="tracker.js"></script>
+</body>
+</html>
