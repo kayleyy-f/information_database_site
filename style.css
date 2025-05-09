@@ -1,4 +1,4 @@
-/* 1. IMPORT FONT & COLOR PALETTE */
+/* 1. IMPORT FONT & PALETTE */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 :root {
@@ -38,29 +38,108 @@ body {
   padding: 0.75rem 1.5rem;
 }
 .page-header h1 {
-  font-size: 1.75rem; font-weight: 700;
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 .page-header p {
-  font-size: 1rem; margin-top: 0.25rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
 }
 
-/* 4. HOMEPAGE LAYOUT – now scoped to .homepage container */
-.homepage main {
+/* 4. HOMEPAGE GRID LAYOUT */
+/* only applies to <main> that does NOT have .detail-main */
+main:not(.detail-main) {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 1rem;
   margin-top: 0.5rem;
 }
 
-/* 5. FILTERS & LISTINGS (unchanged) */
-.filters { /*…*/ }
-.listings { /*…*/ }
-.school-card { /*…*/ }
-/* etc… */
+/* 5. FILTERS SIDEBAR */
+.filters {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem;
+}
+.filters h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--green-700);
+}
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+.filter-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.filter-group select,
+.filter-group input[type="range"] {
+  width: 100%;
+}
+.filter-group select {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.filter-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+#size-val {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
 
-/* 6. DETAIL-PAGE HEADER */
+/* 6. LISTINGS & CARDS */
+.listings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.school-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem;
+}
+.school-card h3 a {
+  color: var(--green-500);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.school-card .meta {
+  font-size: 0.9rem;
+  color: #555;
+}
+.school-card .actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.school-card .btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+.school-card .btn.primary {
+  background: var(--green-500);
+  color: #fff;
+  border: none;
+}
+.school-card .btn.secondary {
+  background: var(--card-bg);
+  color: var(--green-500);
+  border: 1px solid var(--green-500);
+}
+
+/* 7. DETAIL-PAGE HEADER */
 .detail-header {
-  background: var(--header-bg);
+  background: var(--green-700);
   color: var(--header-text);
   padding: 1.5rem 1rem;
   border-bottom: 1px solid var(--border);
@@ -70,12 +149,13 @@ body {
   margin: 0;
 }
 
-/* 7. DETAIL-PAGE WRAPPER & SIDEBAR */
+/* 8. DETAIL-PAGE TWO-COLUMN */
 .detail-container {
   display: flex;
   margin-top: 1rem;
 }
 
+/* 9. DETAIL-PAGE SIDEBAR */
 .detail-nav {
   position: sticky;
   top: 0;
@@ -84,7 +164,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 1rem;
-  height: calc(100vh - (1.5rem + 1rem));
+  height: calc(100vh -  (1.5rem + 1rem));
 }
 .detail-nav ul {
   list-style: none;
@@ -99,7 +179,7 @@ body {
   font-weight: 600;
 }
 
-/* 8. DETAIL-PAGE CONTENT – full width to the right */
+/* 10. DETAIL-PAGE CONTENT */
 .detail-main {
   flex: 1;
   background: var(--card-bg);
@@ -121,7 +201,7 @@ body {
 .detail-main p {
   line-height: 1.6;
 }
-/* horizontal rule separator */
+/* separator */
 .detail-main hr {
   border: none;
   border-top: 1px solid var(--border);
