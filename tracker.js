@@ -43,10 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       card.appendChild(ul);
 
-      // click to advance
+      // click to advance (with confetti)
       card.addEventListener('click', () => {
         app.step = (app.step + 1) % steps.length;
         localStorage.setItem('applications', JSON.stringify(apps));
+
+        // fire confetti
+        confetti({
+          particleCount: 60,
+          spread: 50,
+          origin: { y: 0.6 }
+        });
+
         render();
       });
 
@@ -64,20 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('applications', JSON.stringify(apps));
     select.selectedIndex = 0;
     render();
-  });
-
-  render();
-});
-// inside render(), change this block:
-card.addEventListener('click', () => {
-  app.step = (app.step + 1) % steps.length;
-  localStorage.setItem('applications', JSON.stringify(apps));
-
-  // fire some confetti!
-  confetti({
-    particleCount: 60,
-    spread: 50,
-    origin: { y: 0.6 }
   });
 
   render();
