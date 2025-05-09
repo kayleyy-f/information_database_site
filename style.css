@@ -186,4 +186,61 @@ main {
     gap: 1rem;
     padding: 1rem; /* match index padding */
   }
-  
+  /* detail-page layout */
+body {
+  display: flex;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.detail-nav {
+  position: sticky;
+  top: 0;
+  width: 200px;
+  padding: 1rem;
+  border-right: 3px solid #00796b;  /* dark teal line */
+  background: #f9f9f9;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.detail-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detail-nav li + li {
+  margin-top: 0.75rem;
+}
+
+.detail-nav a {
+  text-decoration: none;
+  color: #00796b;
+  font-weight: bold;
+}
+
+.detail-main {
+  padding: 2rem;
+  flex: 1;
+}
+
+.detail-main section {
+  margin-bottom: 2rem;
+}
+
+.detail-main h2 {
+  margin-top: 0;
+  color: #004d40;
+}
+
+.detail-main hr {
+  border: none;
+  border-top: 2px solid #cfd8dc;
+  margin: 2rem 0;
+}
+
+/* smooth scroll on anchor clicks */
+html {
+  scroll-behavior: smooth;
+}
+
