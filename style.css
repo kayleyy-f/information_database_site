@@ -221,7 +221,7 @@ main:not(.detail-main) {
   margin: 1.5rem 0;
   display: flex;
   gap: 0.5rem;
-  align-items: top;    /* add this */
+  align-items: center;    /* add this */
 }
 
 }
